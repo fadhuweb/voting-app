@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting App</title>
+</head>
+<body>
+    <h1>Vote for your favorite candidate</h1>
+    <form action="{{ url_for('vote') }}" method="POST">
+        <label for ="name"> Name:</label>
+        <input type="text" name="name" id="name" required>
+        <br>
+        {% for candidate in candidates %}
+            <input type="radio" id="{{ candidate }}" name="candidate" value="{{ candidate }}">
+            <label for="{{ candidate }}">{{ candidate }}</label><br>
+        {% endfor %}
+        <button type="submit">Vote</button>
+    </form>
+    <br>
+    <a href="{{ url_for('results') }}">View Results</a>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
