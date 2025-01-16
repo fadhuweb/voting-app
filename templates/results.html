@@ -4,6 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light blue background */
+            color: #333; /* Darker text for contrast */
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #004080; /* Dark blue */
+            margin-top: 20px;
+        }
+        ul {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 0;
+            list-style-type: none;
+        }
+        li {
+            background-color: #e6f7ff; /* Light blue background for items */
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #004080;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            color: #004080;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>Live Voting Results</h1>
@@ -12,17 +52,6 @@
             <li>{{ candidate }}: {{ votes[candidate] }}</li>
         {% endfor %}
     </ul>
-    <a href="{{ url_for('index')}}">Back to Voting</a>
-
+    <a href="{{ url_for('index') }}">Back to Voting</a>
 </body>
-
-
-
-
-
-
-
-
-
-
 </html>

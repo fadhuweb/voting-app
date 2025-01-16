@@ -4,11 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voting App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light blue background */
+            color: #333; /* Darker text for contrast */
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #004080; /* Dark blue */
+            margin-top: 20px;
+        }
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-size: 1rem;
+            color: #004080;
+        }
+        input[type="text"], input[type="radio"] {
+            margin: 10px 0;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #004080;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0066cc;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            color: #004080;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 500px;
+            margin: 10px auto;
+        }
+        li {
+            background-color: #e6f7ff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            color: #004080;
+        }
+    </style>
 </head>
 <body>
-    <h1>Vote for your favorite candidate</h1>
+    <h1>Vote for Your Favorite Candidate</h1>
     <form action="{{ url_for('vote') }}" method="POST">
-        <label for ="name"> Name:</label>
+        <label for="name">Name:</label>
         <input type="text" name="name" id="name" required>
         <br>
         {% for candidate in candidates %}
@@ -17,7 +89,6 @@
         {% endfor %}
         <button type="submit">Vote</button>
     </form>
-    <br>
     <a href="{{ url_for('results') }}">View Results</a>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
